@@ -17,7 +17,7 @@ Kopi plans, art-directs, and renders brand-consistent emails from your Klaviyo d
 | Surface | What it gives you |
 |---------|-------------------|
 | **Drafting** | Compose emails that match your brand voice, palette, typography, and recent campaigns — from a one-line prompt |
-| **Analysis** | Audit campaign and flow performance, surface winners and bottlenecks, tie every recommendation to observed Klaviyo data |
+| **Auditing** | Audit campaign and flow performance, surface winners and bottlenecks, tie every recommendation to observed Klaviyo data |
 | **Ideas** | Surface high-value ideas grouped by category (core, flow, newsjacking, trending), prioritized by impact × speed |
 
 ## Authentication
@@ -26,24 +26,14 @@ On first tool call, you'll complete an OAuth flow to connect your Kopi account. 
 
 ## Plugin Components
 
-### Slash Commands
-
-- `/kopi-email-marketing:analyze <brand>` — Run a full lifecycle email audit for one brand: performance, winners, underperformers, and a prioritized 14-day action plan.
-- `/kopi-email-marketing:ideas <brand>` — Surface prioritized email ideas grouped by category. Ask to draft any one directly.
-- `/kopi-email-marketing:status` — Check status of in-flight Kopi jobs (email generation, brand setup, refresh tasks).
-
 ### Skills
 
-Claude invokes these automatically based on context — no command needed.
+Claude invokes these automatically based on what you ask, or you can invoke them explicitly via slash command.
 
-- **create-email** — Drafts a brand-consistent email. Triggers when you ask to write, draft, or compose an email, campaign, welcome series, abandoned cart, or flow.
-- **analyze-brand** — Audits a brand's email program and returns evidence-backed recommendations. Triggers on performance, revenue, engagement, or audit/review requests.
-- **explore-ideas** — Surfaces high-value campaign and flow ideas grouped by category. Triggers on "what should we send next", campaign planning, or newsjacking questions.
-- **klaviyo-diagnostics** — Diagnoses Klaviyo program health. Triggers when you mention broken flows, underperforming campaigns, revenue gaps, or unexplained performance dips.
+- **`/kopi-email-marketing:audit-brand <brand>`** — Run a full lifecycle email audit: performance health, campaigns, flows, and a prioritized 14-day action plan. Also triggers automatically when you ask to audit, analyze, review, or diagnose a brand's email program.
+- **`/kopi-email-marketing:surface-email-ideas <brand>`** — Find and rank email campaign ideas (core campaigns, flow updates, newsjacking, trending) and optionally draft the winner. Also triggers automatically when you ask what to send next.
 
-### Subagent
-
-- **kopi-analyst** — A specialized agent for deep brand audits. Invoke with `@kopi-analyst <brand>` for thorough, evidence-backed performance analysis with a 14-day action plan.
+For drafting, editing, viewing, and job-status checks, Claude calls the MCP tools directly — no skill wrapper needed.
 
 ### MCP Server
 
@@ -51,13 +41,13 @@ Connects to the Kopi remote MCP server at `https://trykopi.ai/mcp` over HTTP. 10
 
 **Brand**
 - `list_brands` — Paginated list of accessible brands with email counts and roles.
-- `set_active_brand` — Switch active brand by name, domain, URL, or ID. Fuzzy matching supported.
+- `set_active_brand` — Switch the active brand. `mode: "set"` (default) resolves an existing brand by `brandId` or `query` (fuzzy match on name/domain). If no match, returns `status: "not_found"` with a prompt to retry. `mode: "create"` creates a new brand from a `url` (async, 1–3 min).
 - `get_context` — Returns the active brand plus a full briefing (performance, recent emails, ideas). Starting point for most questions.
 
 **Email**
 - `create_email` — Generate a new email from a natural-language prompt. Kopi plans, art-directs, and renders from brand settings. Returns a URL; generation takes 5–10 min async.
 - `edit_email` — Surgically edit an existing email in place (e.g., "shorten the intro"). Preserves colors, fonts, and structure. Returns the same URL updated; ~30–60 sec.
-- `view_email` — Inspect one email by URL or chat ID. Returns subject, copy, generation strategy, design critique, and screenshot.
+- `view_email` — Inspect one email by URL or email ID. Returns subject, copy, generation strategy, design critique, and screenshot.
 - `check_status` — Check status of in-progress work (email generation, brand setup, async ops).
 
 **Analysis**
@@ -74,9 +64,14 @@ Connects to the Kopi remote MCP server at `https://trykopi.ai/mcp` over HTTP. 10
 Draft a welcome-series email for Armra that emphasizes the new flavor launch.
 ```
 
-**Run a full audit:**
+**Run a full audit (slash form):**
 ```
-/kopi-email-marketing:analyze Dr. Squatch
+/kopi-email-marketing:audit-brand Dr. Squatch
+```
+
+**Run a full audit (natural language — same result):**
+```
+Audit Dr. Squatch's email program and tell me what to fix.
 ```
 
 **Explore what to send next:**
@@ -84,14 +79,14 @@ Draft a welcome-series email for Armra that emphasizes the new flavor launch.
 What should we send this week for Nami Matcha?
 ```
 
-**Diagnose a specific performance dip:**
+**Diagnose a performance issue (triggers audit-brand):**
 ```
 Why is our Klaviyo flow revenue down this month for Armra?
 ```
 
 **Check async job status:**
 ```
-/kopi-email-marketing:status
+What's the status of my in-flight Kopi jobs?
 ```
 
 ## How Email Generation Works
