@@ -5,10 +5,11 @@ Brand-aware lifecycle email marketing for **Klaviyo**. Draft, analyze, and diagn
 ## Installation
 
 ```
-/plugin install kopi-email-marketing@claude-plugins-official
+/plugin marketplace add tryrendition/kopi-email-marketing-plugin
+/plugin install kopi-email-marketing@kopi
 ```
 
-Or browse `/plugin > Discover` in Claude Code.
+Or browse `/plugin > Discover` in Claude Code after adding the marketplace.
 
 ## What It Does
 
