@@ -2,7 +2,7 @@
   "mcpServers": {
     "kopi-email-marketing": {
       "type": "http",
-      "url": "https://trykopi.ai/mcp"
+      "url": "https://www.trykopi.ai/mcp"
     }
   }
 }

@@ -38,7 +38,7 @@ For drafting, editing, viewing, and job-status checks, Claude calls the MCP tool
 
 ### MCP Server
 
-Connects to the Kopi remote MCP server at `https://trykopi.ai/mcp` over HTTP. 10 tools organized by domain:
+Connects to the Kopi remote MCP server at `https://www.trykopi.ai/mcp` over HTTP. 10 tools organized by domain:
 
 **Brand**
 - `list_brands` — Paginated list of accessible brands with email counts and roles.
