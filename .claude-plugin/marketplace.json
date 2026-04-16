@@ -1,0 +1,14 @@
+{
+  "name": "kopi",
+  "owner": {
+    "name": "Kopi",
+    "url": "https://trykopi.ai"
+  },
+  "plugins": [
+    {
+      "name": "kopi-email-marketing",
+      "source": "./",
+      "description": "Brand-aware lifecycle email marketing for Klaviyo — draft, analyze, and diagnose emails grounded in your brand's performance data."
+    }
+  ]
+}
