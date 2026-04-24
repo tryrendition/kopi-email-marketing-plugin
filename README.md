@@ -23,7 +23,7 @@ Kopi plans, art-directs, and renders brand-consistent emails from your Klaviyo d
 
 ## Authentication
 
-On first tool call, you'll complete an OAuth flow to connect your Kopi account. The MCP server handles tokens — no env vars, no manual setup. Requires a Kopi account ([sign up](https://trykopi.ai)).
+On first tool call, you'll complete an OAuth flow to connect your Kopi account. The MCP server handles tokens — no env vars, no manual setup. Requires a Kopi account ([sign up](https://www.trykopi.ai)).
 
 ## Plugin Components
 
@@ -103,8 +103,8 @@ Kopi's `create_email` and `edit_email` tools are **asynchronous** — they retur
 
 ## Links
 
-- [Website](https://trykopi.ai)
-- [MCP Docs](https://trykopi.ai/mcp-docs)
+- [Website](https://www.trykopi.ai)
+- [MCP Docs](https://www.trykopi.ai/mcp-docs)
 - [Support](mailto:support@trykopi.ai)
 
 ## License

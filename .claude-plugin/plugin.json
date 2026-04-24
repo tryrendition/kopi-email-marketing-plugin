@@ -1,12 +1,12 @@
 {
   "name": "kopi-email-marketing",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Brand-aware lifecycle email marketing for Klaviyo — draft, analyze, and diagnose emails grounded in your brand's performance data.",
   "author": {
     "name": "Kopi",
     "email": "support@trykopi.ai"
   },
-  "homepage": "https://trykopi.ai/mcp-docs",
+  "homepage": "https://www.trykopi.ai/mcp-docs",
   "repository": "https://github.com/tryrendition/kopi-email-marketing-plugin",
   "license": "Apache-2.0",
   "keywords": ["email", "klaviyo", "lifecycle", "marketing", "brand"]

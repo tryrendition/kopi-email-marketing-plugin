@@ -1,6 +1,7 @@
 ---
 name: surface-email-ideas
-description: Find and rank email campaign ideas for a brand — core campaigns, flow updates, newsjacking, trending topics — and optionally draft the winning idea. Use when the user asks what to send next, wants campaign ideas, or is exploring opportunities.
+description: "Kopi (brand-aware Klaviyo email): find and rank email campaign ideas for a brand — core campaigns, flow updates, newsjacking, trending topics — each with a priority and a ready-to-use prompt for create_email. Optionally drafts the winning idea when the user picks one."
+when_to_use: The user asks what to send next, wants campaign ideas, is exploring opportunities, or is looking for newsjack / trending angles. Example phrasings — "what should we send this week for <brand>?", "give me campaign ideas", "any newsjacking angles?", "what's trending we could run with?", "help me plan next month's emails."
 user-invocable: true
 argument-hint: "[brand name, domain, URL, or ID]"
 ---

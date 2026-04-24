@@ -1,0 +1,15 @@
+{
+  "description": "Kopi pre-auth discovery hook — surfaces the plugin's purpose and canonical workflows before MCP OAuth completes.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks-handlers/session-start.sh\""
+          }
+        ]
+      }
+    ]
+  }
+}

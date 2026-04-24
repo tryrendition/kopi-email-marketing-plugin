@@ -1,6 +1,7 @@
 ---
 name: audit-brand
-description: Audit a brand's email program — performance health, campaigns, flows, and opportunities — and return a prioritized 14-day action plan. Use when the user asks to audit, analyze, review, diagnose, or assess a brand's email marketing, Klaviyo setup, or program health.
+description: "Kopi (brand-aware Klaviyo email): run a full lifecycle audit of one brand's email program — program health, campaigns, flows, opportunities — and return a prioritized 14-day action plan tied to observed Klaviyo data. Reads from the active brand set via set_active_brand."
+when_to_use: The user asks to audit, analyze, review, diagnose, or assess a brand's email marketing, Klaviyo setup, or program health. Example phrasings — "audit <brand>", "review <brand>'s email program", "why is <brand>'s flow revenue down?", "how is our campaign performance trending?", "diagnose <brand>'s lifecycle emails."
 user-invocable: true
 argument-hint: "[brand name, domain, URL, or ID]"
 ---
