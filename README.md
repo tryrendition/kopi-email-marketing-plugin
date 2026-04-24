@@ -1,8 +1,16 @@
-# Kopi Email Marketing Plugin for Claude Code
+# Kopi Email Marketing Plugin for Claude
 
 Brand-aware lifecycle email marketing for **Klaviyo**. Draft, analyze, and diagnose emails grounded in your brand's actual performance data — not generic best practices.
 
 ## Installation
+
+### Claude Cowork (web / desktop app)
+
+Open **Customize → Browse plugins**, find *Kopi Email Marketing*, click **Install**.
+
+If your org's admin hasn't added this plugin yet, ask them to add `tryrendition/kopi-email-marketing-plugin` as a plugin source (via sync from GitHub) or upload the release zip (`kopi-email-marketing-plugin-v0.2.2.zip` from [Releases](https://github.com/tryrendition/kopi-email-marketing-plugin/releases)).
+
+### Claude Code (CLI + IDE extensions)
 
 ```
 /plugin marketplace add tryrendition/kopi-email-marketing-plugin
